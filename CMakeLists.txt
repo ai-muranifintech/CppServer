@@ -21,6 +21,9 @@ endif()
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # Compiler features
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 include(SetCompilerFeatures)
 include(SetCompilerWarnings)
 include(SetPlatformFeatures)
@@ -50,6 +53,16 @@ endif()
 
 # Modules
 add_subdirectory("modules")
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  find_library(URING_LIBRARY uring)
+  if(URING_LIBRARY)
+    target_link_libraries(asio ${URING_LIBRARY})
+    target_compile_definitions(asio PUBLIC ASIO_HAS_IO_URING)
+  else()
+    message(WARNING "liburing not found. ASIO_HAS_IO_URING will not be enabled.")
+  endif()
+endif()
 
 # Link libraries
 list(APPEND LINKLIBS ${OPENSSL_LIBRARIES})

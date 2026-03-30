@@ -34,7 +34,7 @@ SSLClient::SSLClient(const std::shared_ptr<Service>& service, const std::shared_
       _sending(false),
       _send_buffer_flush_offset(0),
       _option_keep_alive(false),
-      _option_no_delay(false)
+      _option_no_delay(true)
 {
     assert((service != nullptr) && "Asio service is invalid!");
     if (service == nullptr)
@@ -69,7 +69,7 @@ SSLClient::SSLClient(const std::shared_ptr<Service>& service, const std::shared_
       _sending(false),
       _send_buffer_flush_offset(0),
       _option_keep_alive(false),
-      _option_no_delay(false)
+      _option_no_delay(true)
 {
     assert((service != nullptr) && "Asio service is invalid!");
     if (service == nullptr)
@@ -104,7 +104,7 @@ SSLClient::SSLClient(const std::shared_ptr<Service>& service, const std::shared_
       _sending(false),
       _send_buffer_flush_offset(0),
       _option_keep_alive(false),
-      _option_no_delay(false)
+      _option_no_delay(true)
 {
     assert((service != nullptr) && "Asio service is invalid!");
     if (service == nullptr)

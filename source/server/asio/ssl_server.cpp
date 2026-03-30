@@ -25,7 +25,7 @@ SSLServer::SSLServer(const std::shared_ptr<Service>& service, const std::shared_
       _bytes_sent(0),
       _bytes_received(0),
       _option_keep_alive(false),
-      _option_no_delay(false),
+      _option_no_delay(true),
       _option_reuse_address(false),
       _option_reuse_port(false)
 {
@@ -64,7 +64,7 @@ SSLServer::SSLServer(const std::shared_ptr<Service>& service, const std::shared_
       _bytes_sent(0),
       _bytes_received(0),
       _option_keep_alive(false),
-      _option_no_delay(false),
+      _option_no_delay(true),
       _option_reuse_address(false),
       _option_reuse_port(false)
 {
@@ -96,7 +96,7 @@ SSLServer::SSLServer(const std::shared_ptr<Service>& service, const std::shared_
       _bytes_sent(0),
       _bytes_received(0),
       _option_keep_alive(false),
-      _option_no_delay(false),
+      _option_no_delay(true),
       _option_reuse_address(false),
       _option_reuse_port(false)
 {
